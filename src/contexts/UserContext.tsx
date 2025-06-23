@@ -33,9 +33,13 @@ interface UserContextType {
   setOnboardingAnswers: (answers: OnboardingAnswers) => void;
   setUserProfile: (profile: UserProfile) => void;
   updateProfile: (updates: Partial<UserProfile>) => void;
+  updateSubscriptionPlan: (plan: 'free' | 'basic' | 'premium') => void;
   isLoggedIn: boolean;
   login: (profile: UserProfile) => void;
   logout: () => void;
+  saveUserData: () => void;
+  loadUserData: () => void;
+  getAllUsers: () => UserProfile[];
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -45,24 +49,72 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [onboardingAnswers, setOnboardingAnswersState] = useState<OnboardingAnswers | null>(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  // Stockage des données en JSON dans localStorage
+  const saveUserData = () => {
+    if (userProfile) {
+      // Sauvegarder le profil actuel
+      localStorage.setItem('currentUser', JSON.stringify(userProfile));
+      
+      // Sauvegarder dans la liste des utilisateurs
+      const existingUsers = JSON.parse(localStorage.getItem('allUsers') || '[]');
+      const userIndex = existingUsers.findIndex((user: UserProfile) => user.id === userProfile.id);
+      
+      if (userIndex >= 0) {
+        existingUsers[userIndex] = userProfile;
+      } else {
+        existingUsers.push(userProfile);
+      }
+      
+      localStorage.setItem('allUsers', JSON.stringify(existingUsers));
+      
+      // Créer un fichier de sauvegarde JSON (simulation)
+      const backupData = {
+        users: existingUsers,
+        lastUpdate: new Date().toISOString()
+      };
+      console.log('Données sauvegardées:', JSON.stringify(backupData, null, 2));
+    }
+  };
+
+  const loadUserData = () => {
+    const savedUser = localStorage.getItem('currentUser');
+    if (savedUser) {
+      const user = JSON.parse(savedUser);
+      setUserProfileState(user);
+      setIsLoggedIn(true);
+    }
+  };
+
+  const getAllUsers = (): UserProfile[] => {
+    return JSON.parse(localStorage.getItem('allUsers') || '[]');
+  };
+
   const setOnboardingAnswers = (answers: OnboardingAnswers) => {
     setOnboardingAnswersState(answers);
-    // Sauvegarder dans localStorage temporairement
-    localStorage.setItem('onboardingAnswers', JSON.stringify(answers));
+    localStorage.setItem('tempOnboardingAnswers', JSON.stringify(answers));
   };
 
   const setUserProfile = (profile: UserProfile) => {
     setUserProfileState(profile);
     setIsLoggedIn(true);
-    // Sauvegarder dans localStorage
-    localStorage.setItem('userProfile', JSON.stringify(profile));
+    localStorage.setItem('currentUser', JSON.stringify(profile));
+    
+    // Auto-save à chaque mise à jour du profil
+    setTimeout(saveUserData, 100);
   };
 
   const updateProfile = (updates: Partial<UserProfile>) => {
     if (userProfile) {
       const updatedProfile = { ...userProfile, ...updates };
       setUserProfileState(updatedProfile);
-      localStorage.setItem('userProfile', JSON.stringify(updatedProfile));
+      localStorage.setItem('currentUser', JSON.stringify(updatedProfile));
+      saveUserData();
+    }
+  };
+
+  const updateSubscriptionPlan = (plan: 'free' | 'basic' | 'premium') => {
+    if (userProfile) {
+      updateProfile({ subscriptionPlan: plan });
     }
   };
 
@@ -72,26 +124,32 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
 
   const logout = () => {
     setUserProfileState(null);
+    setOnboardingAnswersState(null);
     setIsLoggedIn(false);
-    localStorage.removeItem('userProfile');
-    localStorage.removeItem('onboardingAnswers');
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('tempOnboardingAnswers');
   };
 
   // Charger les données au démarrage
   React.useEffect(() => {
-    const savedProfile = localStorage.getItem('userProfile');
-    const savedAnswers = localStorage.getItem('onboardingAnswers');
+    loadUserData();
     
-    if (savedProfile) {
-      const profile = JSON.parse(savedProfile);
-      setUserProfileState(profile);
-      setIsLoggedIn(true);
-    }
-    
+    const savedAnswers = localStorage.getItem('tempOnboardingAnswers');
     if (savedAnswers) {
       setOnboardingAnswersState(JSON.parse(savedAnswers));
     }
   }, []);
+
+  // Auto-save périodique
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      if (userProfile) {
+        saveUserData();
+      }
+    }, 60000); // Sauvegarde toutes les minutes
+
+    return () => clearInterval(interval);
+  }, [userProfile]);
 
   return (
     <UserContext.Provider value={{
@@ -100,9 +158,13 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       setOnboardingAnswers,
       setUserProfile,
       updateProfile,
+      updateSubscriptionPlan,
       isLoggedIn,
       login,
-      logout
+      logout,
+      saveUserData,
+      loadUserData,
+      getAllUsers
     }}>
       {children}
     </UserContext.Provider>

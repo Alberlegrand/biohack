@@ -1,77 +1,43 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUser } from "@/contexts/UserContext";
 import { GlassCard } from "@/components/GlassCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { ArrowLeft, User, Mail, Lock, Phone, Calendar, Eye, EyeOff } from "lucide-react";
+import { ArrowLeft, User, Mail, Phone, Calendar } from "lucide-react";
+import { useUser } from "@/contexts/UserContext";
 
 const Register = () => {
   const navigate = useNavigate();
   const { onboardingAnswers, setUserProfile } = useUser();
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
-    password: '',
-    confirmPassword: '',
     phone: '',
     dateOfBirth: '',
     gender: ''
   });
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
-
-    if (!formData.firstName.trim()) newErrors.firstName = 'Le prénom est requis';
-    if (!formData.lastName.trim()) newErrors.lastName = 'Le nom est requis';
-    if (!formData.email.trim()) newErrors.email = 'L\'email est requis';
-    if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email invalide';
-    if (!formData.password) newErrors.password = 'Le mot de passe est requis';
-    if (formData.password.length < 6) newErrors.password = 'Le mot de passe doit contenir au moins 6 caractères';
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Les mots de passe ne correspondent pas';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateForm()) return;
-
     if (!onboardingAnswers) {
-      alert('Veuillez d\'abord compléter le questionnaire d\'onboarding');
       navigate('/onboarding');
       return;
     }
 
-    // Créer le profil utilisateur
     const userProfile = {
-      id: Math.random().toString(36).substr(2, 9), // ID temporaire
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      phone: formData.phone,
-      dateOfBirth: formData.dateOfBirth,
-      gender: formData.gender,
+      id: Date.now().toString(),
+      ...formData,
       onboardingAnswers,
       subscriptionPlan: 'free' as const,
       createdAt: new Date().toISOString()
     };
 
     setUserProfile(userProfile);
-    
-    // Rediriger vers la page de tarification
     navigate('/pricing');
   };
 
@@ -89,11 +55,14 @@ const Register = () => {
 
         <GlassCard>
           <div className="text-center mb-8">
+            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <User className="text-white" size={24} />
+            </div>
             <h1 className="text-3xl font-bold text-gradient mb-2">
               Créer votre compte
             </h1>
             <p className="text-gray-400">
-              Finalisez votre inscription à BioHack Pro
+              Complétez vos informations pour finaliser votre profil
             </p>
           </div>
 
@@ -103,36 +72,27 @@ const Register = () => {
                 <Label htmlFor="firstName" className="text-gray-300">
                   Prénom *
                 </Label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
-                  <Input
-                    id="firstName"
-                    value={formData.firstName}
-                    onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
-                    className="pl-10 bg-white/5 border-white/20 text-white"
-                    placeholder="Prénom"
-                    required
-                  />
-                </div>
-                {errors.firstName && <p className="text-red-400 text-xs">{errors.firstName}</p>}
+                <Input
+                  id="firstName"
+                  value={formData.firstName}
+                  onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
+                  className="bg-white/5 border-white/20 text-white"
+                  placeholder="Jean"
+                  required
+                />
               </div>
-
               <div className="space-y-2">
                 <Label htmlFor="lastName" className="text-gray-300">
                   Nom *
                 </Label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
-                  <Input
-                    id="lastName"
-                    value={formData.lastName}
-                    onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
-                    className="pl-10 bg-white/5 border-white/20 text-white"
-                    placeholder="Nom"
-                    required
-                  />
-                </div>
-                {errors.lastName && <p className="text-red-400 text-xs">{errors.lastName}</p>}
+                <Input
+                  id="lastName"
+                  value={formData.lastName}
+                  onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
+                  className="bg-white/5 border-white/20 text-white"
+                  placeholder="Dupont"
+                  required
+                />
               </div>
             </div>
 
@@ -148,84 +108,32 @@ const Register = () => {
                   value={formData.email}
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                   className="pl-10 bg-white/5 border-white/20 text-white"
-                  placeholder="votre@email.com"
+                  placeholder="jean.dupont@email.com"
                   required
                 />
               </div>
-              {errors.email && <p className="text-red-400 text-xs">{errors.email}</p>}
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="password" className="text-gray-300">
-                Mot de passe *
-              </Label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
-                <Input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  value={formData.password}
-                  onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
-                  className="pl-10 pr-10 bg-white/5 border-white/20 text-white"
-                  placeholder="••••••••"
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                >
-                  {showPassword ? <EyeOff size={16} /> : <Eye size={16} />}
-                </button>
-              </div>
-              {errors.password && <p className="text-red-400 text-xs">{errors.password}</p>}
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-gray-300">
-                Confirmer le mot de passe *
-              </Label>
-              <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
-                <Input
-                  id="confirmPassword"
-                  type={showConfirmPassword ? "text" : "password"}
-                  value={formData.confirmPassword}
-                  onChange={(e) => setFormData(prev => ({ ...prev, confirmPassword: e.target.value }))}
-                  className="pl-10 pr-10 bg-white/5 border-white/20 text-white"
-                  placeholder="••••••••"
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white"
-                >
-                  {showConfirmPassword ? <EyeOff size={16} /> : <Eye size={16} />}
-                </button>
-              </div>
-              {errors.confirmPassword && <p className="text-red-400 text-xs">{errors.confirmPassword}</p>}
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-gray-300">
-                Téléphone (optionnel)
+                Téléphone
               </Label>
               <div className="relative">
                 <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
                 <Input
                   id="phone"
+                  type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                   className="pl-10 bg-white/5 border-white/20 text-white"
-                  placeholder="+33 6 12 34 56 78"
+                  placeholder="+33 1 23 45 67 89"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="dateOfBirth" className="text-gray-300">
-                Date de naissance (optionnel)
+                Date de naissance
               </Label>
               <div className="relative">
                 <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
@@ -239,9 +147,12 @@ const Register = () => {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label className="text-gray-300">Genre (optionnel)</Label>
-              <RadioGroup value={formData.gender} onValueChange={(value) => setFormData(prev => ({ ...prev, gender: value }))}>
+            <div className="space-y-3">
+              <Label className="text-gray-300">Genre</Label>
+              <RadioGroup 
+                value={formData.gender} 
+                onValueChange={(value) => setFormData(prev => ({ ...prev, gender: value }))}
+              >
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="homme" id="homme" />
                   <Label htmlFor="homme" className="text-gray-300 cursor-pointer">Homme</Label>
@@ -260,20 +171,15 @@ const Register = () => {
             <Button
               type="submit"
               className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+              disabled={!formData.firstName || !formData.lastName || !formData.email}
             >
               Créer mon compte
             </Button>
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-gray-400 text-sm">
-              Déjà un compte ?{' '}
-              <button 
-                onClick={() => navigate('/login')}
-                className="text-blue-400 hover:text-blue-300"
-              >
-                Se connecter
-              </button>
+            <p className="text-xs text-gray-400">
+              En créant votre compte, vous acceptez nos conditions d'utilisation et notre politique de confidentialité.
             </p>
           </div>
         </GlassCard>

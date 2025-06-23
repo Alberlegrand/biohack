@@ -73,15 +73,19 @@ const plans = [
 
 const Pricing = () => {
   const navigate = useNavigate();
+  const { userProfile, updateSubscriptionPlan } = useUser();
   const [selectedPlan, setSelectedPlan] = useState('basic');
 
   const handleSelectPlan = (planId: string) => {
     setSelectedPlan(planId);
-    // Ici on pourrait intégrer Stripe ou un autre système de paiement
-    if (planId === 'free') {
+    
+    if (userProfile) {
+      // Mettre à jour le plan dans le profil utilisateur
+      updateSubscriptionPlan(planId as 'free' | 'basic' | 'premium');
       navigate('/dashboard');
     } else {
-      navigate('/dashboard');
+      // Si pas de profil, rediriger vers l'enregistrement
+      navigate('/register');
     }
   };
 
@@ -90,6 +94,15 @@ const Pricing = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
+          <Button 
+            onClick={() => navigate(userProfile ? '/profile' : '/register')}
+            variant="ghost" 
+            className="text-gray-400 hover:text-white mb-6"
+          >
+            <ArrowLeft className="mr-2" size={16} />
+            Retour
+          </Button>
+          
           <h1 className="text-4xl font-bold text-gradient mb-4">
             Choisissez votre plan
           </h1>

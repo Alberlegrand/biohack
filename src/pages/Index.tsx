@@ -9,6 +9,9 @@ import { GoalsProgress } from "@/components/GoalsProgress";
 import { GlassCard } from "@/components/GlassCard";
 
 const Index = () => {
+  const { userProfile } = useUser();
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen p-6 animate-fade-in">
       {/* Header */}
@@ -22,14 +25,20 @@ const Index = () => {
               Optimisez votre performance et votre bien-être
             </p>
           </div>
-          <GlassCard className="p-4">
+          <GlassCard className="p-4 cursor-pointer hover:bg-white/15 transition-all" onClick={() => navigate('/profile')}>
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
                 <User className="text-white" size={20} />
               </div>
               <div>
-                <p className="text-white font-medium">Alexandre Martin</p>
-                <p className="text-xs text-gray-400">Niveau Avancé</p>
+                <p className="text-white font-medium">
+                  {userProfile ? `${userProfile.firstName} ${userProfile.lastName}` : 'Utilisateur'}
+                </p>
+                <p className="text-xs text-gray-400">
+                  {userProfile?.subscriptionPlan === 'free' && 'Plan Gratuit'}
+                  {userProfile?.subscriptionPlan === 'basic' && 'Plan de Base'}
+                  {userProfile?.subscriptionPlan === 'premium' && 'Plan Premium'}
+                </p>
               </div>
             </div>
           </GlassCard>

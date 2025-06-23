@@ -97,6 +97,7 @@ const questions: Question[] = [
 
 const Onboarding = () => {
   const navigate = useNavigate();
+  const { setOnboardingAnswers } = useUser();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [isCompleted, setIsCompleted] = useState(false);
@@ -112,10 +113,12 @@ const Onboarding = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
     } else {
+      // Sauvegarder les réponses dans le contexte
+      setOnboardingAnswers(answers as any);
       setIsCompleted(true);
-      // Ici on pourrait sauvegarder les réponses
+      
       setTimeout(() => {
-        navigate('/pricing');
+        navigate('/register');
       }, 2000);
     }
   };
