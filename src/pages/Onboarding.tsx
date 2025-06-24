@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlassCard } from "@/components/GlassCard";
@@ -21,77 +22,77 @@ interface Question {
 const questions: Question[] = [
   {
     id: 'age',
-    title: 'Quelle est votre tranche d\'âge ?',
+    title: 'Ki laj ou ye?',
     type: 'radio',
-    options: ['18-25 ans', '26-35 ans', '36-45 ans', '46-55 ans', '55+ ans']
+    options: ['18-25 an', '26-35 an', '36-45 an', '46-55 an', '55+ an']
   },
   {
     id: 'goals',
-    title: 'Quels sont vos principaux objectifs ? (Plusieurs choix possibles)',
+    title: 'Ki objektif prensipal ou yo? (Ou ka chwazi plizyè)',
     type: 'checkbox',
     options: [
-      'Améliorer ma forme physique',
-      'Optimiser mon sommeil',
-      'Augmenter ma productivité',
-      'Gérer le stress',
-      'Développer de meilleures habitudes',
-      'Perdre du poids',
-      'Améliorer ma concentration'
+      'Amelyore fòm fizik mwen',
+      'Optimize dòmi mwen',
+      'Ogmante pwodiktivite mwen',
+      'Jere strès',
+      'Devlope pi bon abitid',
+      'Pèdi pwa',
+      'Amelyore konsantrasyon mwen'
     ]
   },
   {
     id: 'sleep',
-    title: 'Combien d\'heures dormez-vous en moyenne par nuit ?',
+    title: 'Konbyen èdtan ou dòmi chak nwit?',
     type: 'radio',
-    options: ['Moins de 6h', '6-7h', '7-8h', '8-9h', 'Plus de 9h']
+    options: ['Mwens pase 6è', '6-7è', '7-8è', '8-9è', 'Plis pase 9è']
   },
   {
     id: 'exercise',
-    title: 'À quelle fréquence faites-vous de l\'exercice ?',
+    title: 'Konbyen fwa ou fè egzèsis?',
     type: 'radio',
-    options: ['Jamais', '1-2 fois/semaine', '3-4 fois/semaine', '5-6 fois/semaine', 'Tous les jours']
+    options: ['Jamè', '1-2 fwa/semèn', '3-4 fwa/semèn', '5-6 fwa/semèn', 'Chak jou']
   },
   {
     id: 'meditation',
-    title: 'Pratiquez-vous la méditation ou la pleine conscience ?',
+    title: 'Èske ou pratike meditasyon oswa konsyans?',
     type: 'radio',
-    options: ['Jamais', 'Occasionnellement', 'Quelques fois/semaine', 'Quotidiennement']
+    options: ['Jamè', 'Pafwa', 'Kèk fwa/semèn', 'Chak jou']
   },
   {
     id: 'nutrition',
-    title: 'Comment décririez-vous votre alimentation ?',
+    title: 'Ki jan ou ta dekri manje ou?',
     type: 'radio',
-    options: ['Très déséquilibrée', 'Plutôt déséquilibrée', 'Correcte', 'Équilibrée', 'Très équilibrée']
+    options: ['Trè mal ekilibre', 'Mal ekilibre', 'Kòrèk', 'Ekilibre', 'Trè ekilibre']
   },
   {
     id: 'stress',
-    title: 'Quel est votre niveau de stress quotidien ?',
+    title: 'Ki nivo strès ou chak jou?',
     type: 'radio',
-    options: ['Très faible', 'Faible', 'Modéré', 'Élevé', 'Très élevé']
+    options: ['Trè fèb', 'Fèb', 'Modere', 'Wo', 'Trè wo']
   },
   {
     id: 'tracking',
-    title: 'Utilisez-vous déjà des outils de suivi ? (Plusieurs choix possibles)',
+    title: 'Èske ou deja itilize zouti pou swiv? (Ou ka chwazi plizyè)',
     type: 'checkbox',
     options: [
-      'Montre connectée',
-      'Applications mobiles',
-      'Journal papier',
-      'Capteurs biométriques',
-      'Aucun outil'
+      'Montre konekte',
+      'Aplikasyon mobil',
+      'Jounal papye',
+      'Capteur byometrik',
+      'Pa gen zouti'
     ]
   },
   {
     id: 'challenges',
-    title: 'Quels sont vos principaux défis actuels ?',
+    title: 'Ki defi prensipal ou yo kounye a?',
     type: 'textarea',
-    placeholder: 'Décrivez vos difficultés principales en développement personnel...'
+    placeholder: 'Dekri pwoblèm prensipal ou yo nan devlopman pèsonèl...'
   },
   {
     id: 'commitment',
-    title: 'Combien de temps pouvez-vous consacrer quotidiennement à votre développement ?',
+    title: 'Konbyen tan ou ka bay chak jou pou devlopman ou?',
     type: 'radio',
-    options: ['5-10 minutes', '10-20 minutes', '20-30 minutes', '30-60 minutes', 'Plus d\'1 heure']
+    options: ['5-10 minit', '10-20 minit', '20-30 minit', '30-60 minit', 'Plis pase 1 èdtan']
   }
 ];
 
@@ -113,7 +114,6 @@ const Onboarding = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
     } else {
-      // Sauvegarder les réponses dans le contexte
       setOnboardingAnswers(answers as any);
       setIsCompleted(true);
       
@@ -138,10 +138,10 @@ const Onboarding = () => {
         <GlassCard className="max-w-md mx-auto text-center">
           <CheckCircle className="text-green-400 mx-auto mb-4" size={64} />
           <h2 className="text-2xl font-semibold text-white mb-4">
-            Profil créé avec succès !
+            Pwofil ou kreye ak siksè!
           </h2>
           <p className="text-gray-300 mb-6">
-            Nous préparons votre plan personnalisé...
+            N ap prepare plan pèsonèl ou...
           </p>
           <div className="animate-pulse">
             <div className="h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
@@ -162,12 +162,12 @@ const Onboarding = () => {
             className="text-gray-400 hover:text-white mb-4"
           >
             <ArrowLeft className="mr-2" size={16} />
-            Retour
+            Tounen
           </Button>
           
           <div className="mb-4">
             <div className="flex justify-between text-sm text-gray-400 mb-2">
-              <span>Question {currentQuestion + 1} sur {questions.length}</span>
+              <span>Kesyon {currentQuestion + 1} sou {questions.length}</span>
               <span>{Math.round(progress)}%</span>
             </div>
             <div className="w-full bg-gray-700 rounded-full h-2">
@@ -255,7 +255,7 @@ const Onboarding = () => {
             className="border-white/30 text-white hover:bg-white/10"
           >
             <ArrowLeft className="mr-2" size={16} />
-            Précédent
+            Anvan
           </Button>
           
           <Button 
@@ -263,7 +263,7 @@ const Onboarding = () => {
             disabled={!answers[currentQ.id] || (currentQ.type === 'checkbox' && (!answers[currentQ.id] || answers[currentQ.id].length === 0))}
             className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
           >
-            {currentQuestion === questions.length - 1 ? 'Terminer' : 'Suivant'}
+            {currentQuestion === questions.length - 1 ? 'Fini' : 'Swivan'}
             <ArrowRight className="ml-2" size={16} />
           </Button>
         </div>

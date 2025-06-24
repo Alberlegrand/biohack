@@ -1,3 +1,4 @@
+
 import { Activity, Brain, Heart, Moon, Target, BookOpen, Zap, User } from "lucide-react";
 import { MetricCard } from "@/components/MetricCard";
 import { HabitTracker } from "@/components/HabitTracker";
@@ -20,10 +21,10 @@ const Index = () => {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h1 className="text-4xl font-bold text-gradient mb-2">
-              BioHack Pro
+              Routin Anm
             </h1>
             <p className="text-gray-400">
-              Optimisez votre performance et votre bien-être
+              Optimize pèfòmans ou ak byennèt ou
             </p>
           </div>
           <GlassCard className="p-4 cursor-pointer hover:bg-white/15 transition-all" onClick={() => navigate('/profile')}>
@@ -33,11 +34,11 @@ const Index = () => {
               </div>
               <div>
                 <p className="text-white font-medium">
-                  {userProfile ? `${userProfile.firstName} ${userProfile.lastName}` : 'Utilisateur'}
+                  {userProfile ? `${userProfile.firstName} ${userProfile.lastName}` : 'Itilizatè'}
                 </p>
                 <p className="text-xs text-gray-400">
-                  {userProfile?.subscriptionPlan === 'free' && 'Plan Gratuit'}
-                  {userProfile?.subscriptionPlan === 'basic' && 'Plan de Base'}
+                  {userProfile?.subscriptionPlan === 'free' && 'Plan Gratis'}
+                  {userProfile?.subscriptionPlan === 'basic' && 'Plan Debaz'}
                   {userProfile?.subscriptionPlan === 'premium' && 'Plan Premium'}
                 </p>
               </div>
@@ -48,7 +49,7 @@ const Index = () => {
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <MetricCard
-            title="Score Bien-être"
+            title="Kote Byennèt"
             value={87}
             unit="%"
             trend={12}
@@ -56,15 +57,15 @@ const Index = () => {
             color="blue"
           />
           <MetricCard
-            title="Streak Habitudes"
+            title="Streak Abitid"
             value={21}
-            unit="jours"
+            unit="jou"
             trend={5}
             icon={<Zap size={24} />}
             color="purple"
           />
           <MetricCard
-            title="Qualité Sommeil"
+            title="Kalite Dòmi"
             value={8.2}
             unit="/10"
             trend={-2}
@@ -72,7 +73,7 @@ const Index = () => {
             color="cyan"
           />
           <MetricCard
-            title="Focus Mental"
+            title="Konsantrasyon Mental"
             value={92}
             unit="%"
             trend={8}
@@ -99,14 +100,14 @@ const Index = () => {
           <GratitudeJournal />
           
           <GlassCard>
-            <h3 className="text-xl font-semibold mb-4 text-gradient">Recommandations IA</h3>
+            <h3 className="text-xl font-semibold mb-4 text-gradient">Rekòmandasyon IA</h3>
             <div className="space-y-3">
               <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/20">
                 <div className="flex items-start space-x-3">
                   <Brain className="text-blue-400 mt-1" size={16} />
                   <div>
-                    <p className="text-sm text-blue-300 font-medium">Optimisation Cognitive</p>
-                    <p className="text-xs text-gray-400 mt-1">Essayez 15min de méditation supplémentaire pour améliorer votre focus.</p>
+                    <p className="text-sm text-blue-300 font-medium">Optimize Konitif</p>
+                    <p className="text-xs text-gray-400 mt-1">Eseye 15min meditasyon anplis pou amelyore konsantrasyon ou.</p>
                   </div>
                 </div>
               </div>
@@ -115,8 +116,8 @@ const Index = () => {
                 <div className="flex items-start space-x-3">
                   <Activity className="text-green-400 mt-1" size={16} />
                   <div>
-                    <p className="text-sm text-green-300 font-medium">Récupération Active</p>
-                    <p className="text-xs text-gray-400 mt-1">Votre HRV est élevé, c'est le moment idéal pour un entraînement intense.</p>
+                    <p className="text-sm text-green-300 font-medium">Rekiperasyon Aktif</p>
+                    <p className="text-xs text-gray-400 mt-1">HRV ou wo, se bon moman pou yon antrènman entèns.</p>
                   </div>
                 </div>
               </div>
@@ -125,8 +126,8 @@ const Index = () => {
                 <div className="flex items-start space-x-3">
                   <BookOpen className="text-purple-400 mt-1" size={16} />
                   <div>
-                    <p className="text-sm text-purple-300 font-medium">Développement Personnel</p>
-                    <p className="text-xs text-gray-400 mt-1">Continuez votre lecture, vous êtes proche de votre objectif mensuel !</p>
+                    <p className="text-sm text-purple-300 font-medium">Devlopman Pèsonèl</p>
+                    <p className="text-xs text-gray-400 mt-1">Kontinye lekti ou, ou prèske rive nan objektif mwa ou!</p>
                   </div>
                 </div>
               </div>
@@ -134,16 +135,16 @@ const Index = () => {
           </GlassCard>
 
           <GlassCard>
-            <h3 className="text-xl font-semibold mb-4 text-gradient">Actions Rapides</h3>
+            <h3 className="text-xl font-semibold mb-4 text-gradient">Aksyon Rapid</h3>
             <div className="space-y-2">
               <button className="w-full p-3 rounded-lg bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 text-left hover:from-blue-500/30 hover:to-purple-500/30 transition-all">
-                <span className="text-white font-medium">Démarrer session méditation</span>
+                <span className="text-white font-medium">Kòmanse sesyon meditasyon</span>
               </button>
               <button className="w-full p-3 rounded-lg bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 text-left hover:from-green-500/30 hover:to-emerald-500/30 transition-all">
-                <span className="text-white font-medium">Logger entraînement</span>
+                <span className="text-white font-medium">Anrejistre antrènman</span>
               </button>
               <button className="w-full p-3 rounded-lg bg-gradient-to-r from-orange-500/20 to-red-500/20 border border-orange-500/30 text-left hover:from-orange-500/30 hover:to-red-500/30 transition-all">
-                <span className="text-white font-medium">Prendre mesures bio</span>
+                <span className="text-white font-medium">Pran mezi byometrik</span>
               </button>
             </div>
           </GlassCard>
@@ -155,19 +156,19 @@ const Index = () => {
         <div className="flex items-center justify-center space-x-8 text-center">
           <div>
             <div className="text-2xl font-bold text-gradient">156</div>
-            <div className="text-xs text-gray-400">Jours actifs</div>
+            <div className="text-xs text-gray-400">Jou aktif</div>
           </div>
           <div>
             <div className="text-2xl font-bold text-gradient">23</div>
-            <div className="text-xs text-gray-400">Habitudes maîtrisées</div>
+            <div className="text-xs text-gray-400">Abitid metrize</div>
           </div>
           <div>
             <div className="text-2xl font-bold text-gradient">89%</div>
-            <div className="text-xs text-gray-400">Score global</div>
+            <div className="text-xs text-gray-400">Kote global</div>
           </div>
           <div>
             <div className="text-2xl font-bold text-gradient">12</div>
-            <div className="text-xs text-gray-400">Objectifs atteints</div>
+            <div className="text-xs text-gray-400">Objektif rive</div>
           </div>
         </div>
       </div>

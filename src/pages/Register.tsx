@@ -50,7 +50,7 @@ const Register = () => {
           className="text-gray-400 hover:text-white mb-8"
         >
           <ArrowLeft className="mr-2" size={16} />
-          Retour aux questions
+          Tounen nan kesyon yo
         </Button>
 
         <GlassCard>
@@ -59,10 +59,10 @@ const Register = () => {
               <User className="text-white" size={24} />
             </div>
             <h1 className="text-3xl font-bold text-gradient mb-2">
-              Créer votre compte
+              Kreye kont ou
             </h1>
             <p className="text-gray-400">
-              Complétez vos informations pour finaliser votre profil
+              Ranpli enfòmasyon ou yo pou fini pwofil ou
             </p>
           </div>
 
@@ -70,20 +70,20 @@ const Register = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="firstName" className="text-gray-300">
-                  Prénom *
+                  Premye non *
                 </Label>
                 <Input
                   id="firstName"
                   value={formData.firstName}
                   onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
                   className="bg-white/5 border-white/20 text-white"
-                  placeholder="Jean"
+                  placeholder="Jan"
                   required
                 />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="lastName" className="text-gray-300">
-                  Nom *
+                  Dezyèm non *
                 </Label>
                 <Input
                   id="lastName"
@@ -98,7 +98,7 @@ const Register = () => {
 
             <div className="space-y-2">
               <Label htmlFor="email" className="text-gray-300">
-                Adresse email *
+                Adrès email *
               </Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
@@ -108,7 +108,7 @@ const Register = () => {
                   value={formData.email}
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                   className="pl-10 bg-white/5 border-white/20 text-white"
-                  placeholder="jean.dupont@email.com"
+                  placeholder="jan.dupont@email.com"
                   required
                 />
               </div>
@@ -116,7 +116,7 @@ const Register = () => {
 
             <div className="space-y-2">
               <Label htmlFor="phone" className="text-gray-300">
-                Téléphone
+                Telefòn
               </Label>
               <div className="relative">
                 <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
@@ -126,14 +126,14 @@ const Register = () => {
                   value={formData.phone}
                   onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
                   className="pl-10 bg-white/5 border-white/20 text-white"
-                  placeholder="+33 1 23 45 67 89"
+                  placeholder="+509 1234 5678"
                 />
               </div>
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="dateOfBirth" className="text-gray-300">
-                Date de naissance
+                Dat fèt
               </Label>
               <div className="relative">
                 <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
@@ -148,22 +148,22 @@ const Register = () => {
             </div>
 
             <div className="space-y-3">
-              <Label className="text-gray-300">Genre</Label>
+              <Label className="text-gray-300">Sèks</Label>
               <RadioGroup 
                 value={formData.gender} 
                 onValueChange={(value) => setFormData(prev => ({ ...prev, gender: value }))}
               >
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="homme" id="homme" />
-                  <Label htmlFor="homme" className="text-gray-300 cursor-pointer">Homme</Label>
+                  <RadioGroupItem value="gason" id="gason" />
+                  <Label htmlFor="gason" className="text-gray-300 cursor-pointer">Gason</Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="femme" id="femme" />
-                  <Label htmlFor="femme" className="text-gray-300 cursor-pointer">Femme</Label>
+                  <RadioGroupItem value="fanm" id="fanm" />
+                  <Label htmlFor="fanm" className="text-gray-300 cursor-pointer">Fanm</Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="autre" id="autre" />
-                  <Label htmlFor="autre" className="text-gray-300 cursor-pointer">Autre</Label>
+                  <RadioGroupItem value="lòt" id="lòt" />
+                  <Label htmlFor="lòt" className="text-gray-300 cursor-pointer">Lòt</Label>
                 </div>
               </RadioGroup>
             </div>
@@ -173,13 +173,13 @@ const Register = () => {
               className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
               disabled={!formData.firstName || !formData.lastName || !formData.email}
             >
-              Créer mon compte
+              Kreye kont mwen
             </Button>
           </form>
 
           <div className="mt-6 text-center">
             <p className="text-xs text-gray-400">
-              En créant votre compte, vous acceptez nos conditions d'utilisation et notre politique de confidentialité.
+              Lè ou kreye kont ou, ou aksepte kondisyon itilizasyon nou yo ak règleman vi prive nou.
             </p>
           </div>
         </GlassCard>

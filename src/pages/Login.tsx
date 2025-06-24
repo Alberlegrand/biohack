@@ -17,7 +17,6 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Ici on ajouterait la logique d'authentification
     navigate('/dashboard');
   };
 
@@ -30,23 +29,23 @@ const Login = () => {
           className="text-gray-400 hover:text-white mb-8"
         >
           <ArrowLeft className="mr-2" size={16} />
-          Retour à l'accueil
+          Tounen lakay
         </Button>
 
         <GlassCard>
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gradient mb-2">
-              Connexion
+              Koneksyon
             </h1>
             <p className="text-gray-400">
-              Connectez-vous à votre compte BioHack Pro
+              Konekte nan kont Routin Anm ou
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="email" className="text-gray-300">
-                Adresse email
+                Adrès email
               </Label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
@@ -56,7 +55,7 @@ const Login = () => {
                   value={formData.email}
                   onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
                   className="pl-10 bg-white/5 border-white/20 text-white"
-                  placeholder="votre@email.com"
+                  placeholder="email@ou.com"
                   required
                 />
               </div>
@@ -64,7 +63,7 @@ const Login = () => {
 
             <div className="space-y-2">
               <Label htmlFor="password" className="text-gray-300">
-                Mot de passe
+                Modpas
               </Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={16} />
@@ -91,25 +90,25 @@ const Login = () => {
               type="submit"
               className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
             >
-              Se connecter
+              Konekte
             </Button>
           </form>
 
           <div className="mt-6 text-center space-y-4">
             <button className="text-blue-400 hover:text-blue-300 text-sm">
-              Mot de passe oublié ?
+              Ou bliye modpas ou?
             </button>
             
             <div className="border-t border-white/10 pt-4">
               <p className="text-gray-400 text-sm mb-3">
-                Pas encore de compte ?
+                Ou pa gen kont ankò?
               </p>
               <Button
                 onClick={() => navigate('/onboarding')}
                 variant="outline"
                 className="w-full border-white/30 text-white hover:bg-white/10"
               >
-                Créer un compte
+                Kreye yon kont
               </Button>
             </div>
           </div>

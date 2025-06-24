@@ -15,44 +15,44 @@ export const GoalsProgress = () => {
   const goals: Goal[] = [
     {
       id: '1',
-      title: 'Méditation quotidienne',
+      title: 'Meditasyon chak jou',
       progress: 21,
       target: 30,
-      unit: 'jours',
+      unit: 'jou',
       category: 'Mental'
     },
     {
       id: '2',
-      title: 'Perte de poids',
+      title: 'Pèdi pwa',
       progress: 3.2,
       target: 5,
       unit: 'kg',
-      category: 'Physique'
+      category: 'Fizik'
     },
     {
       id: '3',
-      title: 'Lecture de livres',
+      title: 'Li liv',
       progress: 8,
       target: 12,
-      unit: 'livres',
-      category: 'Développement'
+      unit: 'liv',
+      category: 'Devlopman'
     },
     {
       id: '4',
-      title: 'Heures de sommeil',
+      title: 'Èdtan dòmi',
       progress: 7.5,
       target: 8,
-      unit: 'h/nuit',
-      category: 'Récupération'
+      unit: 'è/nwit',
+      category: 'Rekiperasyon'
     }
   ];
 
   const getCategoryColor = (category: string) => {
     const colors = {
       'Mental': 'from-purple-500 to-pink-500',
-      'Physique': 'from-green-500 to-emerald-500',
-      'Développement': 'from-blue-500 to-cyan-500',
-      'Récupération': 'from-orange-500 to-red-500'
+      'Fizik': 'from-green-500 to-emerald-500',
+      'Devlopman': 'from-blue-500 to-cyan-500',
+      'Rekiperasyon': 'from-orange-500 to-red-500'
     };
     return colors[category as keyof typeof colors] || 'from-gray-500 to-gray-600';
   };
@@ -60,7 +60,7 @@ export const GoalsProgress = () => {
   return (
     <GlassCard>
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-xl font-semibold text-gradient">Objectifs & Progression</h3>
+        <h3 className="text-xl font-semibold text-gradient">Objektif ak Pwogrè</h3>
         <Target className="text-purple-400" size={20} />
       </div>
       

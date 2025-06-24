@@ -19,29 +19,29 @@ const Landing = () => {
             </div>
           </div>
           <h1 className="text-5xl font-bold text-gradient mb-4">
-            BioHack Pro
+            Routin Anm
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Optimisez votre performance, transformez vos habitudes et débloquez votre potentiel avec notre plateforme de biohacking et développement personnel.
+            Optimize pèfòmans ou, transfòme abitid ou yo ak ouvri potansyèl ou ak platfòm nou an pou biohacking ak devlopman pèsonèl.
           </p>
           
           {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
             <GlassCard className="text-center p-4">
               <Heart className="text-blue-400 mx-auto mb-2" size={24} />
-              <p className="text-sm text-gray-300">Suivi Biométrique</p>
+              <p className="text-sm text-gray-300">Swiv Biometrik</p>
             </GlassCard>
             <GlassCard className="text-center p-4">
               <Zap className="text-purple-400 mx-auto mb-2" size={24} />
-              <p className="text-sm text-gray-300">Tracker d'Habitudes</p>
+              <p className="text-sm text-gray-300">Tracker Abitid</p>
             </GlassCard>
             <GlassCard className="text-center p-4">
               <Target className="text-cyan-400 mx-auto mb-2" size={24} />
-              <p className="text-sm text-gray-300">Objectifs Personnalisés</p>
+              <p className="text-sm text-gray-300">Objektif Pèsonèl</p>
             </GlassCard>
             <GlassCard className="text-center p-4">
               <Brain className="text-green-400 mx-auto mb-2" size={24} />
-              <p className="text-sm text-gray-300">IA Personnalisée</p>
+              <p className="text-sm text-gray-300">IA Pèsonèl</p>
             </GlassCard>
           </div>
         </div>
@@ -49,7 +49,7 @@ const Landing = () => {
         {/* Action Buttons */}
         <GlassCard className="max-w-md mx-auto text-center">
           <h2 className="text-2xl font-semibold text-white mb-6">
-            Commencer votre transformation
+            Kòmanse transfòmasyon ou
           </h2>
           
           <div className="space-y-4">
@@ -58,7 +58,7 @@ const Landing = () => {
               className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-medium py-3 text-lg"
             >
               <ArrowRight className="mr-2" size={20} />
-              Commencer maintenant
+              Kòmanse kounye a
             </Button>
             
             <Button 
@@ -67,12 +67,12 @@ const Landing = () => {
               className="w-full border-white/30 text-white hover:bg-white/10"
             >
               <User className="mr-2" size={20} />
-              Se connecter
+              Konekte
             </Button>
           </div>
           
           <p className="text-xs text-gray-400 mt-4">
-            Gratuit pour commencer • Aucune carte requise
+            Gratis pou kòmanse • Pa gen kat ki mande
           </p>
         </GlassCard>
       </div>

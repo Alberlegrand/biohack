@@ -12,11 +12,11 @@ interface Habit {
 
 export const HabitTracker = () => {
   const [habits, setHabits] = useState<Habit[]>([
-    { id: '1', name: 'Méditation matinale', completed: true, streak: 7 },
-    { id: '2', name: '8 verres d\'eau', completed: false, streak: 3 },
-    { id: '3', name: 'Exercice physique', completed: true, streak: 5 },
-    { id: '4', name: 'Lecture (30min)', completed: false, streak: 2 },
-    { id: '5', name: 'Douche froide', completed: true, streak: 12 },
+    { id: '1', name: 'Meditasyon nan maten', completed: true, streak: 7 },
+    { id: '2', name: '8 vè dlo', completed: false, streak: 3 },
+    { id: '3', name: 'Egzèsis fizik', completed: true, streak: 5 },
+    { id: '4', name: 'Lekti (30min)', completed: false, streak: 2 },
+    { id: '5', name: 'Douch frèt', completed: true, streak: 12 },
   ]);
 
   const toggleHabit = (id: string) => {
@@ -27,7 +27,7 @@ export const HabitTracker = () => {
 
   return (
     <GlassCard>
-      <h3 className="text-xl font-semibold mb-4 text-gradient">Habitudes Quotidiennes</h3>
+      <h3 className="text-xl font-semibold mb-4 text-gradient">Abitid Chak Jou</h3>
       <div className="space-y-3">
         {habits.map((habit) => (
           <div 
@@ -47,7 +47,7 @@ export const HabitTracker = () => {
             </div>
             <div className="flex items-center space-x-2">
               <span className="text-xs bg-purple-500/20 text-purple-300 px-2 py-1 rounded-full">
-                {habit.streak} jours
+                {habit.streak} jou
               </span>
             </div>
           </div>

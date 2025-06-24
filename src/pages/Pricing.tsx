@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlassCard } from "@/components/GlassCard";
@@ -8,43 +9,43 @@ import { useUser } from "@/contexts/UserContext";
 const plans = [
   {
     id: 'free',
-    name: 'Plan Gratuit',
+    name: 'Plan Gratis',
     price: '0€',
-    period: 'pour toujours',
-    description: 'Parfait pour commencer votre parcours',
+    period: 'pou tout tan',
+    description: 'Pafè pou kòmanse vwayaj ou',
     icon: Star,
     color: 'from-gray-500 to-gray-600',
     features: [
-      'Suivi de 5 habitudes maximum',
-      'Tableau de bord basique',
-      'Statistiques hebdomadaires',
-      'Journal de gratitude',
-      'Support communautaire'
+      'Swiv 5 abitid maksimòm',
+      'Tablo de bò bazikmaksimòm',
+      'Estatistik chak semèn',
+      'Jounal rekonesans',
+      'Sipò kominote'
     ],
     limitations: [
-      'Pas d\'IA personnalisée',
-      'Historique limité à 30 jours',
-      'Pas d\'export de données'
+      'Pa gen IA pèsonèl',
+      'Istwa limite nan 30 jou',
+      'Pa gen ekspò done'
     ]
   },
   {
     id: 'basic',
-    name: 'Plan de Base',
+    name: 'Plan Debaz',
     price: '9,99€',
-    period: 'par mois',
-    description: 'Pour les utilisateurs engagés',
+    period: 'chak mwa',
+    description: 'Pou itilizatè yo ki angaje',
     icon: Zap,
     color: 'from-blue-500 to-purple-500',
     popular: true,
     features: [
-      'Suivi d\'habitudes illimité',
-      'IA personnalisée et recommandations',
-      'Tracker de sommeil avancé',
-      'Métriques biométriques complètes',
-      'Objectifs personnalisés',
-      'Historique complet',
-      'Export de données',
-      'Support prioritaire'
+      'Swiv abitid san limit',
+      'IA pèsonèl ak rekòmandasyon',
+      'Tracker dòmi avanse',
+      'Metrik byometrik konplè',
+      'Objektif pèsonèl',
+      'Istwa konplè',
+      'Ekspò done',
+      'Sipò priyorite'
     ],
     limitations: []
   },
@@ -52,20 +53,20 @@ const plans = [
     id: 'premium',
     name: 'Plan Premium',
     price: '19,99€',
-    period: 'par mois',
-    description: 'L\'expérience ultime de biohacking',
+    period: 'chak mwa',
+    description: 'Eksperyans ultimate pou biohacking',
     icon: Crown,
     color: 'from-purple-500 to-pink-500',
     features: [
-      'Toutes les fonctionnalités du plan de base',
-      'Coach IA avancé avec analyses prédictives',
-      'Intégrations avec appareils IoT',
-      'Programmes personnalisés complets',
-      'Analyses génétiques (optionnel)',
-      'Consultations avec experts',
-      'API et automations avancées',
-      'Support 24/7 dédié',
-      'Accès aux fonctionnalités beta'
+      'Tout fonksyon plan debaz la',
+      'Coach IA avanse ak analiz predikatif',
+      'Entegrasyon ak aparèy IoT',
+      'Pwogram konplè pèsonèl',
+      'Analiz jenetik (opsyonèl)',
+      'Konsèltasyon ak ekspè',
+      'API ak otomatizasyon avanse',
+      'Sipò 24/7 dedye',
+      'Aksè nan fonksyon beta yo'
     ],
     limitations: []
   }
@@ -80,11 +81,9 @@ const Pricing = () => {
     setSelectedPlan(planId);
     
     if (userProfile) {
-      // Mettre à jour le plan dans le profil utilisateur
       updateSubscriptionPlan(planId as 'free' | 'basic' | 'premium');
       navigate('/dashboard');
     } else {
-      // Si pas de profil, rediriger vers l'enregistrement
       navigate('/register');
     }
   };
@@ -100,14 +99,14 @@ const Pricing = () => {
             className="text-gray-400 hover:text-white mb-6"
           >
             <ArrowLeft className="mr-2" size={16} />
-            Retour
+            Tounen
           </Button>
           
           <h1 className="text-4xl font-bold text-gradient mb-4">
-            Choisissez votre plan
+            Chwazi plan ou
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Sélectionnez le plan qui correspond le mieux à vos objectifs de développement personnel et biohacking
+            Chwazi plan ki pi bon pou objektif devlopman pèsonèl ak biohacking ou yo
           </p>
         </div>
 
@@ -126,7 +125,7 @@ const Pricing = () => {
               >
                 {plan.popular && (
                   <div className="absolute top-0 right-0 bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-1 text-xs font-medium rounded-bl-lg">
-                    Populaire
+                    Popilè
                   </div>
                 )}
                 
@@ -168,7 +167,7 @@ const Pricing = () => {
                       : `bg-gradient-to-r ${plan.color} hover:opacity-90`
                   }`}
                 >
-                  {plan.id === 'free' ? 'Commencer gratuitement' : 'Choisir ce plan'}
+                  {plan.id === 'free' ? 'Kòmanse gratis' : 'Chwazi plan sa a'}
                   <ArrowRight className="ml-2" size={16} />
                 </Button>
               </GlassCard>
@@ -179,16 +178,16 @@ const Pricing = () => {
         {/* Additional Info */}
         <GlassCard className="text-center max-w-2xl mx-auto">
           <h3 className="text-xl font-semibold text-white mb-4">
-            Garantie satisfait ou remboursé 30 jours
+            Garanti satisfè oswa lajan ou tounen nan 30 jou
           </h3>
           <p className="text-gray-300 text-sm mb-4">
-            Essayez notre plateforme sans risque. Si vous n'êtes pas entièrement satisfait, 
-            nous vous remboursons intégralement dans les 30 premiers jours.
+            Eseye platfòm nou an san risk. Si ou pa konplètman satisfè, 
+            n ap remèt ou lajan ou nan 30 premye jou yo.
           </p>
           <div className="flex justify-center space-x-6 text-sm text-gray-400">
-            <span>✓ Annulation à tout moment</span>
-            <span>✓ Données exportables</span>
-            <span>✓ Support français</span>
+            <span>✓ Anile nenpòt lè</span>
+            <span>✓ Done yo ka ekspòte</span>
+            <span>✓ Sipò nan kreyòl</span>
           </div>
         </GlassCard>
       </div>

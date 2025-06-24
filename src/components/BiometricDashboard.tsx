@@ -5,10 +5,10 @@ import { Activity, Heart, Thermometer, Droplets } from "lucide-react";
 export const BiometricDashboard = () => {
   const metrics = [
     {
-      label: "Fréquence Cardiaque",
+      label: "Frekans Kè",
       value: "68",
       unit: "bpm",
-      status: "normal",
+      status: "nòmal",
       icon: <Heart size={20} />,
       color: "text-red-400"
     },
@@ -21,15 +21,15 @@ export const BiometricDashboard = () => {
       color: "text-green-400"
     },
     {
-      label: "Température",
+      label: "Tanperati",
       value: "36.7",
       unit: "°C",
-      status: "normal",
+      status: "nòmal",
       icon: <Thermometer size={20} />,
       color: "text-blue-400"
     },
     {
-      label: "Hydratation",
+      label: "Idratèsyon",
       value: "75",
       unit: "%",
       status: "bon",
@@ -40,7 +40,7 @@ export const BiometricDashboard = () => {
 
   return (
     <GlassCard>
-      <h3 className="text-xl font-semibold mb-4 text-gradient">Métriques Biométriques</h3>
+      <h3 className="text-xl font-semibold mb-4 text-gradient">Metrik Byometrik</h3>
       
       <div className="grid grid-cols-2 gap-4">
         {metrics.map((metric, index) => (
@@ -56,7 +56,7 @@ export const BiometricDashboard = () => {
                 <span className="text-sm text-gray-400 ml-1">{metric.unit}</span>
               </div>
               <span className={`text-xs px-2 py-1 rounded-full ${
-                metric.status === 'normal' ? 'bg-green-500/20 text-green-300' :
+                metric.status === 'nòmal' ? 'bg-green-500/20 text-green-300' :
                 metric.status === 'bon' ? 'bg-blue-500/20 text-blue-300' :
                 'bg-orange-500/20 text-orange-300'
               }`}>
@@ -69,8 +69,8 @@ export const BiometricDashboard = () => {
 
       <div className="mt-6 pt-4 border-t border-white/10">
         <div className="flex items-center justify-between text-sm">
-          <span className="text-gray-400">Dernière mesure</span>
-          <span className="text-white">Il y a 5 minutes</span>
+          <span className="text-gray-400">Dènye mezi</span>
+          <span className="text-white">Gen 5 minit</span>
         </div>
       </div>
     </GlassCard>

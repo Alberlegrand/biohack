@@ -66,7 +66,7 @@ const Profile = () => {
           className="text-gray-400 hover:text-white mb-8"
         >
           <ArrowLeft className="mr-2" size={16} />
-          Retour au tableau de bord
+          Tounen nan tablo de bò
         </Button>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -74,7 +74,7 @@ const Profile = () => {
           <div className="lg:col-span-2">
             <GlassCard>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gradient">Mon Profil</h2>
+                <h2 className="text-2xl font-bold text-gradient">Pwofil Mwen</h2>
                 {!isEditing ? (
                   <Button
                     onClick={() => setIsEditing(true)}
@@ -82,7 +82,7 @@ const Profile = () => {
                     className="border-white/30 text-white hover:bg-white/10"
                   >
                     <Edit className="mr-2" size={16} />
-                    Modifier
+                    Modifye
                   </Button>
                 ) : (
                   <div className="flex space-x-2">
@@ -91,7 +91,7 @@ const Profile = () => {
                       className="bg-green-600 hover:bg-green-700"
                     >
                       <Save className="mr-2" size={16} />
-                      Sauvegarder
+                      Konsève
                     </Button>
                     <Button
                       onClick={handleCancel}
@@ -99,7 +99,7 @@ const Profile = () => {
                       className="border-white/30 text-white hover:bg-white/10"
                     >
                       <X className="mr-2" size={16} />
-                      Annuler
+                      Anile
                     </Button>
                   </div>
                 )}
@@ -107,7 +107,7 @@ const Profile = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <Label className="text-gray-300">Prénom</Label>
+                  <Label className="text-gray-300">Premye non</Label>
                   {isEditing ? (
                     <Input
                       value={editData.firstName || ''}
@@ -120,7 +120,7 @@ const Profile = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="text-gray-300">Nom</Label>
+                  <Label className="text-gray-300">Dezyèm non</Label>
                   {isEditing ? (
                     <Input
                       value={editData.lastName || ''}
@@ -146,7 +146,7 @@ const Profile = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="text-gray-300">Téléphone</Label>
+                  <Label className="text-gray-300">Telefòn</Label>
                   {isEditing ? (
                     <Input
                       value={editData.phone || ''}
@@ -154,12 +154,12 @@ const Profile = () => {
                       className="bg-white/5 border-white/20 text-white"
                     />
                   ) : (
-                    <p className="text-white font-medium">{userProfile.phone || 'Non renseigné'}</p>
+                    <p className="text-white font-medium">{userProfile.phone || 'Pa gen'}</p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="text-gray-300">Date de naissance</Label>
+                  <Label className="text-gray-300">Dat fèt</Label>
                   {isEditing ? (
                     <Input
                       type="date"
@@ -169,14 +169,14 @@ const Profile = () => {
                     />
                   ) : (
                     <p className="text-white font-medium">
-                      {userProfile.dateOfBirth ? new Date(userProfile.dateOfBirth).toLocaleDateString('fr-FR') : 'Non renseigné'}
+                      {userProfile.dateOfBirth ? new Date(userProfile.dateOfBirth).toLocaleDateString('ht-HT') : 'Pa gen'}
                     </p>
                   )}
                 </div>
 
                 <div className="space-y-2">
-                  <Label className="text-gray-300">Genre</Label>
-                  <p className="text-white font-medium capitalize">{userProfile.gender || 'Non renseigné'}</p>
+                  <Label className="text-gray-300">Sèks</Label>
+                  <p className="text-white font-medium capitalize">{userProfile.gender || 'Pa gen'}</p>
                 </div>
               </div>
             </GlassCard>
@@ -186,13 +186,13 @@ const Profile = () => {
           <div className="space-y-6">
             {/* Plan actuel */}
             <GlassCard>
-              <h3 className="text-xl font-semibold text-white mb-4">Plan Actuel</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Plan Aktyèl</h3>
               <div className="flex items-center space-x-3 mb-4">
                 {getPlanIcon(userProfile.subscriptionPlan)}
                 <div>
                   <Badge className={`${getPlanColor(userProfile.subscriptionPlan)} text-white`}>
-                    {userProfile.subscriptionPlan === 'free' && 'Gratuit'}
-                    {userProfile.subscriptionPlan === 'basic' && 'De Base'}
+                    {userProfile.subscriptionPlan === 'free' && 'Gratis'}
+                    {userProfile.subscriptionPlan === 'basic' && 'Debaz'}
                     {userProfile.subscriptionPlan === 'premium' && 'Premium'}
                   </Badge>
                 </div>
@@ -202,22 +202,22 @@ const Profile = () => {
                 variant="outline"
                 className="w-full border-white/30 text-white hover:bg-white/10"
               >
-                Changer de plan
+                Chanje plan
               </Button>
             </GlassCard>
 
             {/* Statistiques */}
             <GlassCard>
-              <h3 className="text-xl font-semibold text-white mb-4">Statistiques</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Estatistik</h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Membre depuis</span>
+                  <span className="text-gray-400">Manm depi</span>
                   <span className="text-white">
-                    {userProfile.createdAt ? new Date(userProfile.createdAt).toLocaleDateString('fr-FR') : 'Aujourd\'hui'}
+                    {userProfile.createdAt ? new Date(userProfile.createdAt).toLocaleDateString('ht-HT') : 'Jodi a'}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-400">Questions complétées</span>
+                  <span className="text-gray-400">Kesyon konplè</span>
                   <span className="text-white">10/10</span>
                 </div>
               </div>
@@ -225,21 +225,21 @@ const Profile = () => {
 
             {/* Actions */}
             <GlassCard>
-              <h3 className="text-xl font-semibold text-white mb-4">Actions</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Aksyon</h3>
               <div className="space-y-2">
                 <Button
                   onClick={() => navigate('/onboarding')}
                   variant="outline"
                   className="w-full border-white/30 text-white hover:bg-white/10"
                 >
-                  Refaire le questionnaire
+                  Refè kèsyonè a
                 </Button>
                 <Button
                   onClick={logout}
                   variant="destructive"
                   className="w-full"
                 >
-                  Se déconnecter
+                  Dekonekte
                 </Button>
               </div>
             </GlassCard>

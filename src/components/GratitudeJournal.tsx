@@ -5,9 +5,9 @@ import { useState } from "react";
 
 export const GratitudeJournal = () => {
   const [gratitudes, setGratitudes] = useState([
-    "Ma famille en bonne santé",
-    "Une journée ensoleillée",
-    "Mon progrès en méditation"
+    "Fanmi mwen ki nan bon sante",
+    "Yon bèl jounen ak solèy",
+    "Pwogrè mwen nan meditasyon"
   ]);
   const [newGratitude, setNewGratitude] = useState("");
   const [isAdding, setIsAdding] = useState(false);
@@ -23,7 +23,7 @@ export const GratitudeJournal = () => {
   return (
     <GlassCard>
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-xl font-semibold text-gradient">Journal de Gratitude</h3>
+        <h3 className="text-xl font-semibold text-gradient">Jounal Rekonesans</h3>
         <Heart className="text-red-400" size={20} />
       </div>
       
@@ -42,7 +42,7 @@ export const GratitudeJournal = () => {
             type="text"
             value={newGratitude}
             onChange={(e) => setNewGratitude(e.target.value)}
-            placeholder="Pour quoi êtes-vous reconnaissant aujourd'hui ?"
+            placeholder="Pou ki sa ou rekonèsan jodi a?"
             className="w-full p-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-400"
             onKeyPress={(e) => e.key === 'Enter' && addGratitude()}
             autoFocus
@@ -52,13 +52,13 @@ export const GratitudeJournal = () => {
               onClick={addGratitude}
               className="px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all"
             >
-              Ajouter
+              Ajoute
             </button>
             <button
               onClick={() => setIsAdding(false)}
               className="px-4 py-2 bg-white/10 text-gray-300 rounded-lg hover:bg-white/20 transition-all"
             >
-              Annuler
+              Anile
             </button>
           </div>
         </div>
@@ -68,7 +68,7 @@ export const GratitudeJournal = () => {
           className="w-full flex items-center justify-center space-x-2 p-3 rounded-lg border-2 border-dashed border-white/20 text-gray-400 hover:border-purple-400 hover:text-purple-400 transition-all"
         >
           <Plus size={20} />
-          <span>Ajouter une gratitude</span>
+          <span>Ajoute yon rekonesans</span>
         </button>
       )}
     </GlassCard>
