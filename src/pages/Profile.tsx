@@ -13,7 +13,16 @@ const Profile = () => {
   const navigate = useNavigate();
   const { userProfile, updateProfile, logout } = useUser();
   const [isEditing, setIsEditing] = useState(false);
-  const [editData, setEditData] = useState(userProfile || {});
+  const [editData, setEditData] = useState(userProfile || {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    dateOfBirth: '',
+    gender: '',
+    onboardingAnswers: {} as any,
+    subscriptionPlan: 'free' as const
+  });
 
   if (!userProfile) {
     navigate('/');
