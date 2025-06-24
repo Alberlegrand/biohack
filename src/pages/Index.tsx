@@ -1,4 +1,3 @@
-
 import { Activity, Brain, Heart, Moon, Target, BookOpen, Zap, User } from "lucide-react";
 import { MetricCard } from "@/components/MetricCard";
 import { HabitTracker } from "@/components/HabitTracker";
@@ -7,8 +6,8 @@ import { GratitudeJournal } from "@/components/GratitudeJournal";
 import { BiometricDashboard } from "@/components/BiometricDashboard";
 import { GoalsProgress } from "@/components/GoalsProgress";
 import { GlassCard } from "@/components/GlassCard";
-import {useUser} from "@/contexts/UserContext";
-import {useNavigate} from "react-router-dom";
+import { useUser } from "@/contexts/UserContext";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const { userProfile } = useUser();

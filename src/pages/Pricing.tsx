@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlassCard } from "@/components/GlassCard";
 import { Button } from "@/components/ui/button";
-import { Check, Star, Zap, Crown, ArrowRight } from "lucide-react";
+import { Check, Star, Zap, Crown, ArrowRight, ArrowLeft } from "lucide-react";
+import { useUser } from "@/contexts/UserContext";
 
 const plans = [
   {
