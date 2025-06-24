@@ -7,6 +7,8 @@ import { GratitudeJournal } from "@/components/GratitudeJournal";
 import { BiometricDashboard } from "@/components/BiometricDashboard";
 import { GoalsProgress } from "@/components/GoalsProgress";
 import { GlassCard } from "@/components/GlassCard";
+import {useUser} from "@/contexts/UserContext";
+import {useNavigate} from "react-router-dom";
 
 const Index = () => {
   const { userProfile } = useUser();
