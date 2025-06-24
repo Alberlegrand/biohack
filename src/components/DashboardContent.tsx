@@ -6,6 +6,9 @@ import { GoalsProgress } from "./GoalsProgress";
 import { GratitudeJournal } from "./GratitudeJournal";
 import { AIRecommendations } from "./AIRecommendations";
 import { QuickActions } from "./QuickActions";
+import { DailyContent } from "./DailyContent";
+import { HabitsExplorer } from "./HabitsExplorer";
+import { FeatureManager } from "./FeatureManager";
 
 export const DashboardContent = () => {
   return (
@@ -18,10 +21,12 @@ export const DashboardContent = () => {
         </div>
         <BiometricDashboard />
         <GoalsProgress />
+        <HabitsExplorer />
       </div>
 
       {/* Right Column */}
       <div className="space-y-6">
+        <DailyContent />
         <GratitudeJournal />
         <AIRecommendations />
         <QuickActions />

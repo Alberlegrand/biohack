@@ -1,0 +1,63 @@
+
+{
+  "badges": [
+    {
+      "id": "premye-pa",
+      "name": "Premye Pa",
+      "description": "Konplète premye abitid ou",
+      "icon": "star",
+      "color": "yellow",
+      "rarity": "common",
+      "requirements": {
+        "type": "habit_complete",
+        "count": 1
+      }
+    },
+    {
+      "id": "semèn-konplè",
+      "name": "Semèn Konplè", 
+      "description": "7 jou nan suite ak menm abitid",
+      "icon": "trophy",
+      "color": "gold",
+      "rarity": "uncommon",
+      "requirements": {
+        "type": "streak",
+        "count": 7
+      }
+    },
+    {
+      "id": "mèt-abitid",
+      "name": "Mèt Abitid",
+      "description": "30 jou nan suite ak menm abitid",
+      "icon": "crown", 
+      "color": "purple",
+      "rarity": "rare",
+      "requirements": {
+        "type": "streak",
+        "count": 30
+      }
+    },
+    {
+      "id": "kolektè",
+      "name": "Kolektè Abitid",
+      "description": "Gen 10 abitid diferan aktif",
+      "icon": "grid-2x2",
+      "color": "blue",
+      "rarity": "uncommon", 
+      "requirements": {
+        "type": "active_habits",
+        "count": 10
+      }
+    }
+  ],
+  "levels": [
+    {"level": 1, "xp_required": 0, "title": "Kòmèsan"},
+    {"level": 2, "xp_required": 100, "title": "Apanti"},
+    {"level": 3, "xp_required": 250, "title": "Pwogresè"},
+    {"level": 4, "xp_required": 500, "title": "Devlope"},
+    {"level": 5, "xp_required": 1000, "title": "Ekspè"},
+    {"level": 6, "xp_required": 2000, "title": "Mèt"},
+    {"level": 7, "xp_required": 4000, "title": "Champion"},
+    {"level": 8, "xp_required": 8000, "title": "Lejann"}
+  ]
+}

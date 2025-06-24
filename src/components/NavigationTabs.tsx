@@ -1,9 +1,9 @@
 
-import { Activity, Brain, Trophy, Download } from "lucide-react";
+import { Activity, Brain, Trophy, Download, Settings } from "lucide-react";
 
 interface NavigationTabsProps {
-  activeTab: 'dashboard' | 'analytics' | 'achievements' | 'export';
-  setActiveTab: (tab: 'dashboard' | 'analytics' | 'achievements' | 'export') => void;
+  activeTab: 'dashboard' | 'analytics' | 'achievements' | 'export' | 'features';
+  setActiveTab: (tab: 'dashboard' | 'analytics' | 'achievements' | 'export' | 'features') => void;
 }
 
 export const NavigationTabs = ({ activeTab, setActiveTab }: NavigationTabsProps) => {
@@ -11,16 +11,17 @@ export const NavigationTabs = ({ activeTab, setActiveTab }: NavigationTabsProps)
     { id: 'dashboard', label: 'Tablo De Bò', icon: <Activity size={16} /> },
     { id: 'analytics', label: 'Analytics', icon: <Brain size={16} /> },
     { id: 'achievements', label: 'Rekonpans', icon: <Trophy size={16} /> },
+    { id: 'features', label: 'Fonksyonalite', icon: <Settings size={16} /> },
     { id: 'export', label: 'Ekspò', icon: <Download size={16} /> }
   ];
 
   return (
-    <div className="flex space-x-4 mb-6">
+    <div className="flex space-x-4 mb-6 overflow-x-auto">
       {tabs.map((tab) => (
         <button
           key={tab.id}
           onClick={() => setActiveTab(tab.id as any)}
-          className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all ${
+          className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all whitespace-nowrap ${
             activeTab === tab.id 
               ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' 
               : 'bg-white/10 text-gray-300 hover:bg-white/20'

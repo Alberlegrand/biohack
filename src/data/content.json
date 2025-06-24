@@ -1,0 +1,69 @@
+
+{
+  "proverbs": [
+    {
+      "id": 1,
+      "text": "Piti piti zwazo fè nich li",
+      "translation": "Petit à petit, l'oiseau fait son nid",
+      "category": "perseverance"
+    },
+    {
+      "id": 2, 
+      "text": "Depi nan Ginen, nèg ap goumen ak lavi a",
+      "translation": "Depuis l'Afrique, nous luttons avec la vie",
+      "category": "resilience"
+    },
+    {
+      "id": 3,
+      "text": "Men anpil, chay pa lou",
+      "translation": "Plusieurs mains, la charge n'est pas lourde", 
+      "category": "community"
+    },
+    {
+      "id": 4,
+      "text": "Lè w tonbe, leve kanpe",
+      "translation": "Quand tu tombes, relève-toi",
+      "category": "perseverance"
+    }
+  ],
+  "affirmations": [
+    {
+      "id": 1,
+      "text": "Mwen gen kapasite pou chanje vi mwen",
+      "category": "self-empowerment",
+      "time": "morning"
+    },
+    {
+      "id": 2,
+      "text": "Chak jou mwen vin pi fò", 
+      "category": "strength",
+      "time": "morning"
+    },
+    {
+      "id": 3,
+      "text": "Mwen rekonèsan pou tout bagay mwen gen jodi a",
+      "category": "gratitude",
+      "time": "evening"
+    },
+    {
+      "id": 4,
+      "text": "Mwen gen dwa nan yon vi ki plen ak kè kontan",
+      "category": "happiness", 
+      "time": "evening"
+    }
+  ],
+  "educational_tips": [
+    {
+      "id": 1,
+      "title": "Poukisa abitid yo enpòtan",
+      "content": "Abitid yo se bagay nou fè otomatikman. Yo ka ede nou oswa fè nou mal. Lè nou devlope bon abitid, yo vin yon pati nan nou ak nou pa bezwen fòse tèt nou.",
+      "category": "habits-science"
+    },
+    {
+      "id": 2,
+      "title": "Kijan pou bati nouvo abitid",
+      "content": "Pou bati yon nouvo abitid: 1) Kòmanse ti kras, 2) Fè li chak jou nan menm tan, 3) Mare li ak yon bagay ou deja fè, 4) Rekonpanse tèt ou lè ou fè li.",
+      "category": "habit-building"
+    }
+  ]
+}

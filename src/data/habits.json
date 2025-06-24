@@ -1,0 +1,71 @@
+
+{
+  "categories": [
+    {
+      "id": "sante-fizik",
+      "name": "Sante Fizik",
+      "color": "blue",
+      "icon": "heart"
+    },
+    {
+      "id": "sante-mental",
+      "name": "Sante Mental", 
+      "color": "purple",
+      "icon": "brain"
+    },
+    {
+      "id": "pwodiktivite",
+      "name": "Pwodiktivite",
+      "color": "green", 
+      "icon": "zap"
+    },
+    {
+      "id": "relasyon",
+      "name": "Relasyon",
+      "color": "pink",
+      "icon": "users"
+    }
+  ],
+  "habits": [
+    {
+      "id": "bwe-dlo",
+      "name": "Bwe 8 vè dlo",
+      "description": "Bwe ase dlo chak jou pou kenbe kò a idrate ak nan bon fòm",
+      "category": "sante-fizik",
+      "difficulty": "easy",
+      "impact": 8,
+      "frequency": "daily",
+      "tips": ["Kenbe yon boutèy dlo bò kote ou", "Mete rapèl sou telefòn ou"]
+    },
+    {
+      "id": "egzesis",
+      "name": "Fè egzèsis 30min",
+      "description": "Fè aktivite fizik pou kenbe kò a ak sante nan bon eta",
+      "category": "sante-fizik", 
+      "difficulty": "medium",
+      "impact": 9,
+      "frequency": "daily",
+      "tips": ["Kòmanse ak 10min", "Chwazi aktivite ou renmen"]
+    },
+    {
+      "id": "meditasyon",
+      "name": "Meditasyon 10min",
+      "description": "Pran tan pou kalme lespri ak konsantre sou respirasyon",
+      "category": "sante-mental",
+      "difficulty": "medium", 
+      "impact": 9,
+      "frequency": "daily",
+      "tips": ["Jwenn yon kote trankil", "Kòmanse ak 5min"]
+    },
+    {
+      "id": "lekti",
+      "name": "Li 20min",
+      "description": "Li liv oswa atik ki ka ede devlopman pèsonèl",
+      "category": "pwodiktivite",
+      "difficulty": "easy",
+      "impact": 7,
+      "frequency": "daily", 
+      "tips": ["Chwazi liv enteresan", "Li nan menm tan chak jou"]
+    }
+  ]
+}

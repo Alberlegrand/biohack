@@ -7,8 +7,8 @@ import { useUser } from "@/contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
 interface AppHeaderProps {
-  activeTab: 'dashboard' | 'analytics' | 'achievements' | 'export';
-  setActiveTab: (tab: 'dashboard' | 'analytics' | 'achievements' | 'export') => void;
+  activeTab: 'dashboard' | 'analytics' | 'achievements' | 'export' | 'features';
+  setActiveTab: (tab: 'dashboard' | 'analytics' | 'achievements' | 'export' | 'features') => void;
 }
 
 export const AppHeader = ({ activeTab, setActiveTab }: AppHeaderProps) => {
@@ -23,7 +23,7 @@ export const AppHeader = ({ activeTab, setActiveTab }: AppHeaderProps) => {
             Routin Anm
           </h1>
           <p className="text-gray-400">
-            Optimize pèfòmans ou ak byennèt ou
+            Optimize pèfòmans ou ak byennèt ou ak 40 fonksyonalite
           </p>
         </div>
         

@@ -1,0 +1,113 @@
+
+{
+  "features": [
+    {
+      "id": 1,
+      "name": "Kreye pwofil itilizatè",
+      "category": "foundation",
+      "status": "active",
+      "priority": "high",
+      "description": "Kreye pwofil ak non, laj, sèks, preferans ak objektif yo",
+      "component": "UserProfile"
+    },
+    {
+      "id": 2, 
+      "name": "Kèsyonè evalyasyon inisyal",
+      "category": "foundation",
+      "status": "active",
+      "priority": "high", 
+      "description": "Evalye eta aktyèl ak objektif pèsonèl yo",
+      "component": "InitialAssessment"
+    },
+    {
+      "id": 3,
+      "name": "Baz done abitid yo klase pa tematik",
+      "category": "foundation", 
+      "status": "active",
+      "priority": "high",
+      "description": "Sistèm pou klase ak jesyon abitid yo",
+      "component": "HabitsDatabase"
+    },
+    {
+      "id": 4,
+      "name": "Fich eksplikatè detaye pou chak abitid",
+      "category": "foundation",
+      "status": "active", 
+      "priority": "medium",
+      "description": "Enfòmasyon konplè sou chak abitid",
+      "component": "HabitDetails"
+    },
+    {
+      "id": 5,
+      "name": "Motè kreye woutin pèsonalize",
+      "category": "foundation",
+      "status": "active",
+      "priority": "high",
+      "description": "Sistèm pou kreye woutin ki adapte ak chak moun",
+      "component": "RoutineBuilder"
+    },
+    {
+      "id": 6,
+      "name": "Swiv chak jou abitid yo",
+      "category": "foundation", 
+      "status": "active",
+      "priority": "high",
+      "description": "Ka koche pou make si yo fè abitid la",
+      "component": "DailyTracking"
+    },
+    {
+      "id": 7,
+      "name": "Jounal imè chak jou",
+      "category": "foundation",
+      "status": "active",
+      "priority": "medium", 
+      "description": "Sistèm ak smileys pou make ki jan ou santi ou",
+      "component": "MoodJournal"
+    },
+    {
+      "id": 8,
+      "name": "Evalyasyon enèji chak jou", 
+      "category": "foundation",
+      "status": "active",
+      "priority": "medium",
+      "description": "Mezire nivo enèji ou chak jou",
+      "component": "EnergyTracking"
+    },
+    {
+      "id": 9,
+      "name": "Istorik konplè abitid ak pwogresyon",
+      "category": "foundation",
+      "status": "active",
+      "priority": "high",
+      "description": "Gade tout pwogre ou fè depi ou kòmanse",
+      "component": "ProgressHistory"
+    },
+    {
+      "id": 10,
+      "name": "Notifikasyon ak rapèl pèsonalize",
+      "category": "foundation", 
+      "status": "active",
+      "priority": "high",
+      "description": "Rapèl ki adapte ak chak moun pou abitid yo",
+      "component": "SmartNotifications"
+    },
+    {
+      "id": 11,
+      "name": "IA pou kalkile enpak pèsonalize",
+      "category": "ai-personalization",
+      "status": "planned",
+      "priority": "high",
+      "description": "AI ki evalye ki enpak chak abitid genyen sou ou",
+      "component": "AIImpactScoring"
+    },
+    {
+      "id": 12,
+      "name": "Sijesyon otomatik nouvo abitid",
+      "category": "ai-personalization", 
+      "status": "planned",
+      "priority": "medium",
+      "description": "AI ki sigjere abitid ki ka ede ou",
+      "component": "HabitSuggestions"
+    }
+  ]
+}
