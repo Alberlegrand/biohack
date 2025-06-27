@@ -1,10 +1,11 @@
-
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Play, ChevronDown, Star, Users, Trophy, Brain, Heart, Zap, CheckCircle, ArrowRight, Menu, X, Target, Award, Calendar, BarChart3, MessageCircle, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-white">
@@ -28,10 +29,10 @@ const Index = () => {
             </div>
 
             <div className="hidden lg:flex items-center space-x-4">
-              <Button variant="ghost" className="text-gray-600 hover:text-gray-900">
+              <Button variant="ghost" className="text-gray-600 hover:text-gray-900" onClick={() => navigate('/login')}>
                 Konekte
               </Button>
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white" onClick={() => navigate('/quiz')}>
                 Kòmanse Gratis
               </Button>
             </div>
@@ -55,8 +56,8 @@ const Index = () => {
                 <a href="#testimonials" className="block text-gray-600 hover:text-gray-900">Temwayaj</a>
                 <a href="#blog" className="block text-gray-600 hover:text-gray-900">Blog</a>
                 <div className="flex flex-col space-y-2 pt-4">
-                  <Button variant="ghost" className="justify-start">Konekte</Button>
-                  <Button className="bg-purple-600 hover:bg-purple-700 text-white">Kòmanse Gratis</Button>
+                  <Button variant="ghost" className="justify-start" onClick={() => navigate('/login')}>Konekte</Button>
+                  <Button className="bg-purple-600 hover:bg-purple-700 text-white" onClick={() => navigate('/quiz')}>Kòmanse Gratis</Button>
                 </div>
               </div>
             </div>
@@ -80,7 +81,7 @@ const Index = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg">
+              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg" onClick={() => navigate('/quiz')}>
                 <Play className="mr-2" size={20} />
                 Kòmanse Jodi a - Gratis
               </Button>
@@ -292,7 +293,7 @@ const Index = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900">Marie Dupont</div>
-                  <div className="text-gray-500 text-sm">Entrepren�</div>
+                  <div className="text-gray-500 text-sm">Entrepren</div>
                 </div>
               </div>
             </div>
@@ -378,7 +379,7 @@ const Index = () => {
                   <span className="text-gray-700">Sipò kominote</span>
                 </li>
               </ul>
-              <Button className="w-full" variant="outline">
+              <Button className="w-full" variant="outline" onClick={() => navigate('/quiz')}>
                 Kòmanse Gratis
               </Button>
             </div>
@@ -417,7 +418,7 @@ const Index = () => {
                   <span className="text-gray-700">Ekspò done</span>
                 </li>
               </ul>
-              <Button className="w-full bg-purple-600 hover:bg-purple-700">
+              <Button className="w-full bg-purple-600 hover:bg-purple-700" onClick={() => navigate('/quiz')}>
                 Chwazi Pro
               </Button>
             </div>
@@ -451,7 +452,7 @@ const Index = () => {
                   <span className="text-gray-700">Sipò 24/7</span>
                 </li>
               </ul>
-              <Button className="w-full" variant="outline">
+              <Button className="w-full" variant="outline" onClick={() => navigate('/quiz')}>
                 Chwazi Premium
               </Button>
             </div>
@@ -469,7 +470,7 @@ const Index = () => {
             Anrejistre kounye a ak kòmanse bati yon lavi ki pi bon ak Routin Anm
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-50 px-8 py-4 text-lg">
+            <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-50 px-8 py-4 text-lg" onClick={() => navigate('/quiz')}>
               Kòmanse Gratis Kounye a
             </Button>
             <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 px-8 py-4 text-lg">
