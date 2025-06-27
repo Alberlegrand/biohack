@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -7,6 +6,18 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowLeft, ArrowRight, CheckCircle } from "lucide-react";
 import { useUser } from "@/contexts/UserContext";
+
+// Import the QuizAnswers type from UserContext
+interface QuizAnswers {
+  lifestyle_current: string;
+  main_goals: string[];
+  current_habits: string[];
+  challenges: string;
+  daily_routine: string;
+  motivation_factors: string[];
+  time_commitment: string;
+  tracking_preference: string;
+}
 
 interface QuizQuestion {
   id: string;
