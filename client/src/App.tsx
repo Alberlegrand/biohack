@@ -12,7 +12,6 @@ import Pricing from "./pages/Pricing";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Index from "./pages/Index";
-import Quiz from "./pages/Quiz";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,9 +24,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/landing" element={<Landing />} />
-            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/" element={<Landing />} />
             <Route path="/onboarding" element={<Onboarding />} />
             <Route path="/register" element={<Register />} />
             <Route path="/pricing" element={<Pricing />} />
