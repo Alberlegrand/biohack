@@ -127,7 +127,7 @@ const Quiz = () => {
   const navigate = useNavigate();
   const { setQuizAnswers } = useUser();
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<Record<string, any>>({});
+  const [answers, setAnswers] = useState<Partial<QuizAnswers>>({});
   const [isCompleted, setIsCompleted] = useState(false);
 
   const handleAnswer = (questionId: string, value: any) => {
@@ -141,7 +141,19 @@ const Quiz = () => {
     if (currentQuestion < quizQuestions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
     } else {
-      setQuizAnswers(answers);
+      // Convert answers to proper QuizAnswers type
+      const quizAnswers: QuizAnswers = {
+        lifestyle_current: answers.lifestyle_current || '',
+        main_goals: answers.main_goals || [],
+        current_habits: answers.current_habits || [],
+        challenges: answers.challenges || '',
+        daily_routine: answers.daily_routine || '',
+        motivation_factors: answers.motivation_factors || [],
+        time_commitment: answers.time_commitment || '',
+        tracking_preference: answers.tracking_preference || ''
+      };
+      
+      setQuizAnswers(quizAnswers);
       setIsCompleted(true);
       
       setTimeout(() => {

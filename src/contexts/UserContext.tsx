@@ -25,11 +25,29 @@ interface QuizAnswers {
   tracking_preference: string;
 }
 
+interface UserProfile {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  dateOfBirth?: string;
+  gender?: string;
+  onboardingAnswers?: OnboardingAnswers;
+  subscriptionPlan: 'free' | 'basic' | 'premium';
+  createdAt: string;
+}
+
 interface UserContextType {
   onboardingAnswers: OnboardingAnswers | null;
   quizAnswers: QuizAnswers | null;
+  userProfile: UserProfile | null;
   setOnboardingAnswers: (answers: OnboardingAnswers) => void;
   setQuizAnswers: (answers: QuizAnswers) => void;
+  setUserProfile: (profile: UserProfile) => void;
+  updateProfile: (profile: Partial<UserProfile>) => void;
+  updateSubscriptionPlan: (plan: 'free' | 'basic' | 'premium') => void;
+  logout: () => void;
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -37,13 +55,37 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [onboardingAnswers, setOnboardingAnswers] = useState<OnboardingAnswers | null>(null);
   const [quizAnswers, setQuizAnswers] = useState<QuizAnswers | null>(null);
+  const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
+
+  const updateProfile = (updates: Partial<UserProfile>) => {
+    if (userProfile) {
+      setUserProfile({ ...userProfile, ...updates });
+    }
+  };
+
+  const updateSubscriptionPlan = (plan: 'free' | 'basic' | 'premium') => {
+    if (userProfile) {
+      setUserProfile({ ...userProfile, subscriptionPlan: plan });
+    }
+  };
+
+  const logout = () => {
+    setUserProfile(null);
+    setOnboardingAnswers(null);
+    setQuizAnswers(null);
+  };
 
   return (
     <UserContext.Provider value={{
       onboardingAnswers,
       quizAnswers,
+      userProfile,
       setOnboardingAnswers,
-      setQuizAnswers
+      setQuizAnswers,
+      setUserProfile,
+      updateProfile,
+      updateSubscriptionPlan,
+      logout
     }}>
       {children}
     </UserContext.Provider>
